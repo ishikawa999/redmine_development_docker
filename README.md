@@ -12,7 +12,7 @@ $ git clone https://github.com/ishikawa999/redmine_development_docker.git
 $ cd /your/path/redmine_development_docker
 ```
 
-* .envを書き換える。CLONE_REPOSITORYなど
+* .envを書き換える
 
 * update_devcontainer_setting.rbを実行
 
