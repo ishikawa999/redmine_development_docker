@@ -1,0 +1,19 @@
+{
+    "name": "AppName",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/var/lib/app",
+    "shutdownAction": "stopCompose",
+    "appPort": 8000,
+    "extensions": [
+        "rebornix.ruby",
+        "eamodio.gitlens",
+        "kaiwood.endwise"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "workbench.colorCustomizations": {
+            "activityBar.background": "#ab3e3e"
+        }
+    }
+}

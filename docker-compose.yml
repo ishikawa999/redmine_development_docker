@@ -1,0 +1,51 @@
+version: '3'
+services:
+
+  # PostgreSQL
+  postgresdb:
+    image: postgres:11.5
+    restart: on-failure:5
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: db_user
+
+  # MySQL
+  mysqldb:
+    image: mysql:5.7
+    restart: on-failure:5
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password
+      MYSQL_USER: db_user
+
+  app:
+    build:
+      context: .
+      args:
+        APP_HOME: $APP_HOME
+        APP_PORT: $APP_PORT
+        RUBY_VERSION: $RUBY_VERSION
+    environment:
+      RAILS_DB_ADAPTER: postgresql
+      RAILS_DB_HOST: postgresdb
+      RAILS_DB: app
+      RAILS_DB_USERNAME: db_user
+      RAILS_DB_PASSWORD: password
+      RAILS_DB_ENCODING: utf8
+      RAILS_ENV: development
+    env_file: .env
+    tty: true
+    ports:
+      - $APP_PORT:3000
+    depends_on:
+      - postgresdb
+      - mysqldb
+    volumes:
+      - ./app/.git:$APP_HOME/.git
+      - ./share:$APP_HOME/../share
+
+  chrome:
+    image: selenium/standalone-chrome-debug:3.141.59-europium
+    ports:
+    - 4444:4444
+    - 5900:5900
