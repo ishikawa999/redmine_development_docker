@@ -13,7 +13,6 @@ $ cd /your/path/redmine_development_docker
 ```
 
 * .envを書き換える
-
 * update_devcontainer_setting.rbを実行
 
 ```bash
@@ -22,22 +21,14 @@ $ ruby update_devcontainer_setting.rb
 
 * そのアプリケーション独自の設定や、自分の開発環境用のカスタマイズがしたい場合はscripts/custom_shell.shに書く(entrypointで実行される)
 
-* docker-compose buildする
-
-```bash
-$ docker-compose build
-```
-
 * VScodeに拡張機能[Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)をインストール
 
-* VScodeで/your/path/app_nameを開いた状態でRemote Containers: Open Folder in Container...を選択
-* 起動したらターミナルで新しいタブを開き、
+* VScodeで/your/path/app_nameを開いた状態でRemote Containers: Rebuild and Reopen in Containerを選択
+* 起動したら統合ターミナルのタブを追加し、
 ```bash
 $ rails s -b 0.0.0.0
 ```
-* 少し待つとhttp://localhost:[.envで指定したport]でアクセスできるようになる。
-
-※うまく動かなかったらvscode側でrebuildしてみる
+* 少し待つとhttp://localhost:[.envで指定したAPP_PORT]でアクセスできるようになる。
 
 ## docker-compose.ymlを書き換えずにDBアダプターを切り替え(postgresql, sqlite3などでも同じようにできる)
 
@@ -96,3 +87,7 @@ index dce8b3a0e..e04ea91e5 100644
 open vnc://localhost:5900
 ```
 を実行すると実際に動いているChromeの画面を見ることができる。
+
+## メールの内容をチェック
+
+http://localhost:[.envで指定したMAILCATCHER_PORT] でにアクセスするとメールキャッチャーを開ける

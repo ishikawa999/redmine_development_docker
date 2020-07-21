@@ -23,6 +23,17 @@
     echo "  encoding: <%= ENV['RAILS_DB_ENCODING'] %>"; \
 } | tee config/database.yml
 
+{ \
+  echo "development:"; \
+  echo "  email_delivery:"; \
+  echo "    delivery_method: :smtp"; \
+  echo "    smtp_settings:"; \
+  echo "      address: 'smtp'"; \
+  echo "      port: 1025"; \
+  echo "test:"; \
+  echo "production:"; \
+} | tee config/configuration.yml
+
 bundle install
 rake generate_secret_token
 

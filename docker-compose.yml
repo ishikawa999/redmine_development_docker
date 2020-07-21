@@ -49,3 +49,8 @@ services:
     ports:
     - $SELENIUM_PORT_1:4444
     - $SELENIUM_PORT_2:5900
+
+  smtp:
+    image: schickling/mailcatcher
+    ports:
+      - $MAILCATCHER_PORT:1080

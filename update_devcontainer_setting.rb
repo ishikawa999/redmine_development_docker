@@ -9,10 +9,8 @@ else
 end
 
 unless Dir.exist?('app')
-  print 'Clone Repository URLを入力してください: '
-  repository_url = gets.chomp
-
-  `git clone #{repository_url} app`
+  `git clone https://github.com/redmine/redmine.git app`
+  `cp Gemfile.local app/Gemfile.local`
 end
 
 # Update devcontainer

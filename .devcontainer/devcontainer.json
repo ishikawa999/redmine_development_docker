@@ -8,7 +8,8 @@
     "extensions": [
         "rebornix.ruby",
         "eamodio.gitlens",
-        "kaiwood.endwise"
+        "kaiwood.endwise",
+        "ms-vsliveshare.vsliveshare"
     ],
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
