@@ -23,7 +23,7 @@ $ ruby update_devcontainer_setting.rb
 
 * VScodeに拡張機能[Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)をインストール
 
-* VScodeで/your/path/app_nameを開いた状態でRemote Containers: Rebuild and Reopen in Containerを選択
+* VScodeで/your/path/app_nameを開いた状態で、VSCodeのコマンドパレットからRemote Containers: Rebuild and Reopen in Container（もしくは右下に出てくるポップアップのReopen in Container）を選択 => ビルドが始まるはず
 * 起動したら統合ターミナルのタブを追加し、
 ```bash
 $ rails s -b 0.0.0.0
