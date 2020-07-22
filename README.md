@@ -30,7 +30,14 @@ $ rails s -b 0.0.0.0
 ```
 * 少し待つとhttp://localhost:[.envで指定したAPP_PORT]でアクセスできるようになる。
 
-## docker-compose.ymlを書き換えずにDBアダプターを切り替え(postgresql, sqlite3などでも同じようにできる)
+* テストの実行
+```bash
+$ bundle exec rake test RAILS_ENV=test
+```
+
+## おまけ(ほぼ使うことない)
+
+### docker-compose.ymlを書き換えずにDBアダプターを切り替え(postgresql, sqlite3などでも同じようにできる)
 
 ```bash
 $ export RAILS_DB_ADAPTER=mysql2
@@ -44,7 +51,7 @@ $ bundle exec rake db:migrate
 $ rails s -b 0.0.0.0
 ```
 
-## selenium test
+### selenium test
 
  selenium/standalone-chrome-debugイメージから持ってきたchromeを動かすためにCapybara周りで下のような感じに設定を追加する。
  app == docker-composeでrailsアプリケーションが動いているところのサービス名
@@ -88,6 +95,6 @@ open vnc://localhost:5900
 ```
 を実行すると実際に動いているChromeの画面を見ることができる。
 
-## メールの内容をチェック
+### メールの内容をチェック
 
 http://localhost:[.envで指定したMAILCATCHER_PORT] でにアクセスするとメールキャッチャーを開ける
