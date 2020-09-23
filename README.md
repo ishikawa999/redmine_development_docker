@@ -47,7 +47,7 @@ $ ruby update_devcontainer_setting.rb
 ```bash
 $ rails s -b 0.0.0.0
 ```
-* 少し待つとhttp://localhost:[.envで指定したAPP_PORT]でアクセスできるようになる。
+* 少し待つとhttp://localhost:[.envで指定したAPP_PORT] でアクセスできるようになる。
 
 * テストの実行
 ```bash
