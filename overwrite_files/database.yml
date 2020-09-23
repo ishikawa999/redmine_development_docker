@@ -1,0 +1,21 @@
+production:
+  adapter: <%= ENV['RAILS_DB_ADAPTER'] %>
+  database: <%= ENV['RAILS_DB'] %>
+  username: <%= ENV['RAILS_DB_USERNAME'] %>
+  password: <%= ENV['RAILS_DB_PASSWORD'] %>
+  host: <%= ENV['RAILS_DB_HOST'] %>
+  encoding: <%= ENV['RAILS_DB_ENCODING'] %>
+development:
+  adapter: <%= ENV['RAILS_DB_ADAPTER'] %>
+  database: <%= ENV['RAILS_DB'] %>_development
+  username: <%= ENV['RAILS_DB_USERNAME'] %>
+  password: <%= ENV['RAILS_DB_PASSWORD'] %>
+  host: <%= ENV['RAILS_DB_HOST'] %>
+  encoding: <%= ENV['RAILS_DB_ENCODING'] %>
+test:
+  adapter: <%= ENV['RAILS_DB_ADAPTER'] %>
+  database: <%= ENV['RAILS_DB'] %>_test
+  username: <%= ENV['RAILS_DB_USERNAME'] %>
+  password: <%= ENV['RAILS_DB_PASSWORD'] %>
+  host: <%= ENV['RAILS_DB_HOST'] %>
+  encoding: <%= ENV['RAILS_DB_ENCODING'] %>

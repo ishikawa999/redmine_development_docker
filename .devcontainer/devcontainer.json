@@ -1,8 +1,8 @@
 {
-    "name": "AppName",
+    "name": "Redmine",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "app",
-    "workspaceFolder": "/var/lib/app",
+    "workspaceFolder": "/var/lib/redmine",
     "shutdownAction": "stopCompose",
     "appPort": 8000,
     "extensions": [

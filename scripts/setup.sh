@@ -2,30 +2,6 @@
 
 cd $APP_HOME
 
-{ \
-  echo "production:"; \
-  echo "  adapter: postgresql"; \
-  echo "  database: <%= ENV['RAILS_DB'] %>"; \
-  echo "  username: <%= ENV['RAILS_DB_USERNAME'] %>"; \
-  echo "  password: <%= ENV['RAILS_DB_PASSWORD'] %>"; \
-  echo "  host: <%= ENV['RAILS_DB_HOST'] %>"; \
-  echo "  encoding: <%= ENV['RAILS_DB_ENCODING'] %>"; \
-  echo "development:"; \
-  echo "  adapter: postgresql"; \
-  echo "  database: <%= ENV['RAILS_DB'] %>_development"; \
-  echo "  username: <%= ENV['RAILS_DB_USERNAME'] %>"; \
-  echo "  password: <%= ENV['RAILS_DB_PASSWORD'] %>"; \
-  echo "  host: <%= ENV['RAILS_DB_HOST'] %>"; \
-  echo "  encoding: <%= ENV['RAILS_DB_ENCODING'] %>"; \
-  echo "test:"; \
-  echo "  adapter: postgresql"; \
-  echo "  database: <%= ENV['RAILS_DB'] %>_test"; \
-  echo "  username: <%= ENV['RAILS_DB_USERNAME'] %>"; \
-  echo "  password: <%= ENV['RAILS_DB_PASSWORD'] %>"; \
-  echo "  host: <%= ENV['RAILS_DB_HOST'] %>"; \
-  echo "  encoding: <%= ENV['RAILS_DB_ENCODING'] %>"; \
-} | tee config/database.yml;
-
 # git-prompt & git-completion
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O /var/lib/.git-completion.bash
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O /var/lib/.git-prompt.sh
@@ -34,7 +10,6 @@ chmod a+x /var/lib/.git-prompt.sh
 chmod a+x /var/lib/.git-completion.bash
 
 { \
-  echo "alias ls='ls -G'"; \
   echo "source /var/lib/.git-completion.bash"; \
   echo "source /var/lib/.git-prompt.sh"; \
   echo "# git-completion"; \
@@ -53,3 +28,6 @@ git config --global core.pager "LESSCHARSET=utf-8 less"
 echo 'ja_JP.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 update-locale
+
+locale-gen ja_JP.UTF-8
+localedef -f UTF-8 -i ja_JP ja_JP

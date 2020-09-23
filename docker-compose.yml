@@ -10,19 +10,19 @@ services:
       POSTGRES_USER: db_user
 
   # MySQL
-  mysqldb:
-    image: mysql:5.7
-    restart: on-failure:5
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_PASSWORD: password
-      MYSQL_USER: db_user
+  # mysqldb:
+  #   image: mysql:5.7
+  #   restart: on-failure:5
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_USER: db_user
 
   app:
     build:
       context: .
       args:
-        APP_HOME: $APP_HOME
+        APP_HOME: /var/lib/redmine
         APP_PORT: $APP_PORT
         RUBY_VERSION: $RUBY_VERSION
     environment:
@@ -39,16 +39,20 @@ services:
       - $APP_PORT:3000
     depends_on:
       - postgresdb
-      - mysqldb
+    #  - mysqldb
     volumes:
-      - ./app/.git:$APP_HOME/.git
-      - ./share:$APP_HOME/../share
+      - ./app:/var/lib/redmine
+      # 全体を同期すると速度が遅くなるため、上の一行を消して下の二行のコメントアウトを外してもいい
+      # その場合、同期場所がgitの履歴とshareディレクトリのみになるため、git commitしたもの + shareディレクトリに入れたファイル以外はコンテナのキャッシュが消えたときに消える
+      # - ./app/.git:/var/lib/redmine/.git
+      # - ./share:/var/lib/redmine/../share
 
-  chrome:
-    image: selenium/standalone-chrome-debug:3.141.59-europium
-    ports:
-    - $SELENIUM_PORT_1:4444
-    - $SELENIUM_PORT_2:5900
+  # For selenium test
+  # chrome:
+  #   image: selenium/standalone-chrome-debug:3.141.59-europium
+  #   ports:
+  #   - $SELENIUM_PORT_1:4444
+  #   - $SELENIUM_PORT_2:5900
 
   smtp:
     image: schickling/mailcatcher

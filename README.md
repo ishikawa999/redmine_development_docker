@@ -1,7 +1,9 @@
-# VS Code Remote DevelopmentでRailsアプリケーションのDocker開発環境にVSCodeから接続し、デバッグする
+# VSCode Remote ContainerでRedmineのDocker開発環境にVSCodeから接続する
 
-(自分用)
-https://github.com/ishikawa999/rails_app_development_docker に自分用のカスタマイズを加えた物
+# 前提条件
+
+* Docker Desktopを起動している
+* Visual Studio Codeが利用できる
 
 # 利用手順
 
@@ -13,6 +15,23 @@ $ cd /your/path/redmine_development_docker
 ```
 
 * .envを書き換える
+
+```bash
+# VSCodeで表示する名前。バージョンごとに作るときは変えた方が良いかも
+APP_NAME=Redmine
+# 開発中のRedmineに http://localhost:8000 でアクセス出来るようになる。8000を既に使っている場合は変える
+APP_PORT=8000
+# Seleniumのテストを実行するとき以外はそのまま
+SELENIUM_PORT_1=4444
+SELENIUM_PORT_2=5900
+# Redmineから送信したメールを http://localhost:1080 で確認出来るようになる。1080を既に使っている場合は変える
+MAILCATCHER_PORT=1080
+# 開発するRedmineの推奨Rubyバージョンに応じて変える
+RUBY_VERSION=2.6
+# mysqlやsqlite3に変えても良い。mysqlの場合、docker-compose.ymlのMySQL関連のコメントアウトを外す
+RAILS_DB_ADAPTER=postgresql
+```
+
 * update_devcontainer_setting.rbを実行
 
 ```bash
@@ -35,27 +54,33 @@ $ rails s -b 0.0.0.0
 $ bundle exec rake test RAILS_ENV=test
 ```
 
-## おまけ(ほぼ使うことない)
+## おまけ
 
-### docker-compose.ymlを書き換えずにDBアダプターを切り替え(postgresql, sqlite3などでも同じようにできる)
+### リポジトリを https://github.com/redmine/redmine.git から自分のリポジトリに変えたい
+
+コンテナ内に入っている状態で、
 
 ```bash
-$ export RAILS_DB_ADAPTER=mysql2
-$ export RAILS_DB_HOST=mysqldb
-$ export RAILS_DB_USERNAME=root
-
-$ bundle update
-$ bundle install
-$ bundle exec rake db:create
-$ bundle exec rake db:migrate
-$ rails s -b 0.0.0.0
+$ git remote set-url origin <リポジトリのURL>
+$ git fetch origin
+$ git reset --hard origin/master
 ```
 
-### selenium test
+### VSCodeの拡張機能を増やしたい
 
- selenium/standalone-chrome-debugイメージから持ってきたchromeを動かすためにCapybara周りで下のような感じに設定を追加する。
+.devcontainer/devcontainer.jsonのextensionsに拡張機能を追加し、VSCodeのコマンドパレットからRebuild and Reopen container
+
+### Redmineから送信されるメールの内容をチェック
+
+http://localhost:[.envで指定したMAILCATCHER_PORT] でにアクセスするとメールキャッチャーを開ける
+
+### test/systemのテストを実行する場合
+
+docker-compose.yml内のchrome:の塊のコメントアウトを外し、VSCodeのコマンドパレットからRebuild and Reopen container
+
+ selenium/standalone-chrome-debugイメージから持ってきたchromeを動かすためにCapybara周りで下のように設定を追加する。
  app == docker-composeでrailsアプリケーションが動いているところのサービス名
- chrome:4444 == docker-compose　selenium/standalone-chrome-debugイメージのサービス名 + port
+ chrome:4444 == docker-compose selenium/standalone-chrome-debugイメージのサービス名 + port
 
 ```diff
 diff --git a/test/application_system_test_case.rb b/test/application_system_test_case.rb
@@ -94,7 +119,3 @@ index dce8b3a0e..e04ea91e5 100644
 open vnc://localhost:5900
 ```
 を実行すると実際に動いているChromeの画面を見ることができる。
-
-### メールの内容をチェック
-
-http://localhost:[.envで指定したMAILCATCHER_PORT] でにアクセスするとメールキャッチャーを開ける
