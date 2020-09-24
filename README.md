@@ -48,13 +48,15 @@ $ ruby update_devcontainer_setting.rb
 
 * VSCodeの左側のバーが赤くなり、左側のファイルツリーも表示されたらコンテナ内に入れている状態
 
-<img width="1359" alt="ScreenShot 2020-09-24 11 14 08" src="https://user-images.githubusercontent.com/14245262/94095577-05be6980-fe5d-11ea-9b7a-d2a020c98952.png">
+<img width="1407" alt="ScreenShot 2020-09-24 11 59 24" src="https://user-images.githubusercontent.com/14245262/94095823-7b2a3a00-fe5d-11ea-89a6-20d513710384.png">
 
 * ターミナルのタブを追加し、
 ```bash
 $ rails s -b 0.0.0.0
 ```
 * 少し待つと、ブラウザから http://localhost:[.envで指定したAPP_PORT] でRedmineにアクセスできるようになる。
+
+<img width="1407" alt="ScreenShot 2020-09-24 11 59 51" src="https://user-images.githubusercontent.com/14245262/94095834-7feeee00-fe5d-11ea-87bd-3a8fc6242690.png">
 
 * テストの実行
 ```bash
