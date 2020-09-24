@@ -42,12 +42,19 @@ $ ruby update_devcontainer_setting.rb
 
 * VScodeに拡張機能[Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)をインストール
 
-* VScodeで/your/path/app_nameを開いた状態で、VSCodeのコマンドパレットからRemote Containers: Rebuild and Reopen in Container（もしくは右下に出てくるポップアップのReopen in Container）を選択 => ビルドが始まるはず
-* 起動したら統合ターミナルのタブを追加し、
+* VScodeで/your/path/redmine_development_docker を開いた状態で、VSCodeのコマンドパレットからRemote Containers: Rebuild and Reopen in Container（もしくは右下に出てくるポップアップのReopen in Container）を選択 => ビルドが始まるはず
+
+<img width="1359" alt="ScreenShot 2020-09-24 11 16 27" src="https://user-images.githubusercontent.com/14245262/94095500-cee85380-fe5c-11ea-8ff0-8bcb2a0f3ae4.png">
+
+* VSCodeの左側のバーが赤くなり、左側のファイルツリーも表示されたらコンテナ内に入れている状態
+
+<img width="1359" alt="ScreenShot 2020-09-24 11 14 08" src="https://user-images.githubusercontent.com/14245262/94095577-05be6980-fe5d-11ea-9b7a-d2a020c98952.png">
+
+* ターミナルのタブを追加し、
 ```bash
 $ rails s -b 0.0.0.0
 ```
-* 少し待つとhttp://localhost:[.envで指定したAPP_PORT] でアクセスできるようになる。
+* 少し待つと、ブラウザから http://localhost:[.envで指定したAPP_PORT] でRedmineにアクセスできるようになる。
 
 * テストの実行
 ```bash
