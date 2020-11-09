@@ -6,28 +6,21 @@ ENV LANG C.UTF-8
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN set -eux; \
-  apt-get update && \
-  apt-get install -y --no-install-recommends \
+  apt update && \
+  apt install -y --no-install-recommends \
     ca-certificates \
-    wget \
-    \
-    bzr \
-    git \
-    mercurial \
+    wget curl \
+    bzr git mercurial subversion \
     openssh-client \
-    subversion \
     gsfonts \
     imagemagick libmagick++-dev \
-    build-essential \
-    libpq-dev \
-    vim \
-    less \
-    default-libmysqlclient-dev \
-    locales \
-    locales-all \
-    libsqlite3-dev \
+    build-essential libpq-dev \
+    vim less locales locales-all \
+    default-libmysqlclient-dev libsqlite3-dev \
     ; \
-    apt-get clean && \
+    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+    apt install -y nodejs && \
+    apt clean && \
     rm -rf /var/lib/apt/lists/*;
 ENV DEBIAN_FRONTEND dialog
 
@@ -39,6 +32,7 @@ RUN for file_name in "/start.sh /entrypoint.sh /setup.sh /custom_shell.sh"; do \
       chmod +x $file_name; \
     done
 
+RUN bundle update
 RUN bundle install
 RUN /setup.sh
 

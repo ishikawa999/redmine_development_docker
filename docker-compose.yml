@@ -42,10 +42,12 @@ services:
     #  - mysqldb
     volumes:
       - ./app:/var/lib/redmine
-      # 全体を同期すると速度が遅くなるため、上の一行を消して下の二行のコメントアウトを外してもいい
+      # 全体を同期すると速度が遅くなるため、上の1行を消して下の4行のコメントアウトを外してもいい
       # その場合、同期場所がgitの履歴とshareディレクトリのみになるため、git commitしたもの + shareディレクトリに入れたファイル以外はコンテナのキャッシュが消えたときに消える
       # - ./app/.git:/var/lib/redmine/.git
       # - ./share:/var/lib/redmine/../share
+      # - ./app/public:/var/lib/redmine/public
+      # - ./app/plugins:/var/lib/redmine/plugins
 
   # For selenium test
   # chrome:
