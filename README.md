@@ -93,29 +93,28 @@ docker-compose.yml内のchrome:の塊のコメントアウトを外し、VSCode�
 
 ```diff
 diff --git a/test/application_system_test_case.rb b/test/application_system_test_case.rb
-index dce8b3a0e..e04ea91e5 100644
+index 1a1e0cb4a..fedbe7d15 100644
 --- a/test/application_system_test_case.rb
 +++ b/test/application_system_test_case.rb
-@@ -22,7 +22,11 @@ require File.expand_path('../test_helper', __FILE__)
- class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-   DOWNLOADS_PATH = File.expand_path(File.join(Rails.root, 'tmp', 'downloads'))
- 
+@@ -43,13 +43,17 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+                     }
+                   }
+                 )
+-
++  options[:browser] = :remote
++  options[:url] = "http://chrome:4444/wd/hub"
 +  Capybara.server_host = 'app'
-+  Capybara.server_port = 3000
-   driven_by :selenium, using: :chrome, screen_size: [1024, 900], options: {
-+      browser: :remote,
-+      url: "http://chrome:4444/wd/hub",
-       desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-         'chromeOptions' => {
-           'prefs' => {
-@@ -35,6 +39,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-     }
++  Capybara.server_port = <.envのAPP_PORT(デフォルト8000)に入れた値に書き換える>
+   driven_by(
+     :selenium, using: :chrome, screen_size: [1024, 900],
+     options: options
+   )
  
    setup do
 +    Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
-     clear_downloaded_files
-     Setting.delete_all
-     Setting.clear_cache
+     # Allow defining a custom app host (useful when using a remote Selenium hub)
+     if ENV['CAPYBARA_APP_HOST']
+       Capybara.configure do |config|
 
 ```
 
