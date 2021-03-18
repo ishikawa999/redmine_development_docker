@@ -1,19 +1,10 @@
-print '.envを編集しましたか? [y|n]: '
-
-case gets.chomp
-when 'yes', 'YES', 'y'
-  puts 'スクリプトを実行します.'
-else
-  puts 'スクリプトを終了します.'
-  exit 1
-end
-
 unless Dir.exist?('app')
   `git clone https://github.com/redmine/redmine.git app`
   `cp overwrite_files/Gemfile.local app/Gemfile.local`
   `cp overwrite_files/database.yml app/config/database.yml`
   `cp overwrite_files/configuration.yml app/config/configuration.yml`
   `cp overwrite_files/additional_environment.rb app/config/additional_environment.rb`
+  puts 'appディレクトリにRedmineリポジトリをcloneしました'
 end
 
 # Update devcontainer
