@@ -7,5 +7,6 @@ gem 'parallel_tests'
 gem 'benchmark-ips'
 gem 'activeresource'
 gem 'timecop'
-gem "ruby-debug-ide"
-gem "debase"
+gem 'ruby-debug-ide'
+gem 'debase'
+gem 'debug'
