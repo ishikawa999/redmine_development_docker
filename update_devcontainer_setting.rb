@@ -4,6 +4,7 @@ unless Dir.exist?('app')
   `cp overwrite_files/database.yml app/config/database.yml`
   `cp overwrite_files/configuration.yml app/config/configuration.yml`
   `cp overwrite_files/additional_environment.rb app/config/additional_environment.rb`
+  `cp -r overwrite_files/.vscode app/.vscode`
   puts 'appディレクトリにRedmineリポジトリをcloneしました'
 end
 
