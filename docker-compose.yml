@@ -51,7 +51,7 @@ services:
 
   # For selenium test
   # chrome:
-  #   image: selenium/standalone-chrome-debug:3.141.59-europium
+  #   image: selenium/standalone-chrome-debug:3.141.59-20210913
   #   ports:
   #   - $SELENIUM_PORT_1:4444
   #   - $SELENIUM_PORT_2:5900
