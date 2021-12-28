@@ -51,6 +51,7 @@ services:
 
   # For selenium test
   # chrome:
+  #          M1の場合はselenium/standalone-chrome-debugが動かないため、seleniarm/standalone-chromium:latestを代わりに使うこと。
   #   image: selenium/standalone-chrome-debug:3.141.59-20210913
   #   ports:
   #   - $SELENIUM_PORT_1:4444
