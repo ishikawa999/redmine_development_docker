@@ -1,5 +1,5 @@
 ARG RUBY_VERSION
-FROM ruby:$RUBY_VERSION-slim-stretch
+FROM ruby:$RUBY_VERSION
 ARG APP_HOME
 ARG APP_PORT
 ENV LANG C.UTF-8
@@ -8,10 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN set -eux; \
   apt update && \
   apt install -y --no-install-recommends \
-    ca-certificates \
-    wget curl \
     bzr git mercurial subversion \
-    openssh-client \
     gsfonts \
     imagemagick libmagick++-dev \
     build-essential libpq-dev \

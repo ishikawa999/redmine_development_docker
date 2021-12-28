@@ -102,7 +102,6 @@ index 1a1e0cb4a..fedbe7d15 100644
                  )
 -
 +  options[:browser] = :remote
-+  options[:url] = "http://chrome:4444/wd/hub"
 +  Capybara.server_host = 'app'
 +  Capybara.server_port = <.envのAPP_PORT(デフォルト8000)に入れた値に書き換える>
    driven_by(

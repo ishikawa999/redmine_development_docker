@@ -7,6 +7,8 @@ gem 'parallel_tests'
 gem 'benchmark-ips'
 gem 'activeresource'
 gem 'timecop'
-gem 'ruby-debug-ide'
-gem 'debase'
+if Gem.ruby_version < Gem::Version.new('3.1.0')
+  gem 'ruby-debug-ide'
+  gem 'debase'
+end
 gem 'debug'
