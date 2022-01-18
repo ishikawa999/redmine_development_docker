@@ -35,7 +35,7 @@ RAILS_DB_ADAPTER=postgresql
 * update_devcontainer_setting.shを実行
 
 ```bash
-$ ./update_devcontainer_setting.sh
+$ bash update_devcontainer_setting.sh
 ```
 
 * そのアプリケーション独自の設定や、自分の開発環境用のカスタマイズがしたい場合はscripts/custom_shell.shに書く(entrypointで実行される)
