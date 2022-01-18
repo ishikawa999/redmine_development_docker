@@ -9,9 +9,9 @@
 
 * このリポジトリを手元にClone
 
-```bash
-$ git clone https://github.com/ishikawa999/redmine_development_docker.git
-$ cd /your/path/redmine_development_docker
+```bash session
+$ git clone --config=core.autocrlf=input https://github.com/ishikawa999/redmine_development_docker.git
+$ cd ./redmine_development_docker
 ```
 
 * .envを書き換える
@@ -32,10 +32,10 @@ RUBY_VERSION=2.6
 RAILS_DB_ADAPTER=postgresql
 ```
 
-* update_devcontainer_setting.rbを実行
+* update_devcontainer_setting.shを実行
 
 ```bash
-$ ruby update_devcontainer_setting.rb
+$ bash update_devcontainer_setting.sh
 ```
 
 * そのアプリケーション独自の設定や、自分の開発環境用のカスタマイズがしたい場合はscripts/custom_shell.shに書く(entrypointで実行される)
