@@ -11,7 +11,7 @@ if [ ! -d app ]; then
       # Debian
       [ `which apt` ] && read -p "install [y/N]? " && [ ! x${REPLY^} == xY ] && exit 1 || sudo apt-get update && sudo apt-get install git
       # Alpine
-      [ `which apk` ] && read -p "install [y/N]? " && [ ! x${REPLY^} == xY ] && exit 1 || sudo apk add git
+      [ `which apk` ] && read -p "install [y/N]? " && [ ! x${REPLY^} == xY ] && exit 1 || apk add git
   fi
   git clone --config=core.autocflf=input https://github.com/redmine/redmine.git app
   cp overwrite_files/Gemfile.local app/Gemfile.local
