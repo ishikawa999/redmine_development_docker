@@ -22,5 +22,5 @@ fi
 
 # Update devcontainer
 # sed -i s/8000/${APP_PORT}/ .devcontainer/devcontainer.json  # 削除してよい?
-sed -i s/Redmine/${APP_NAME}/ .devcontainer/devcontainer.json
+sed -i .bak s/Redmine/${APP_NAME}/ .devcontainer/devcontainer.json
 echo '.devcontainer/devcontainer.jsonを変更しました'
