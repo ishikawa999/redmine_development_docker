@@ -6,6 +6,8 @@ source .env
 if [ ! -d app ]; then
   if [ ! `which git` ]; then
       echo -n "git: command not found. "
+      # RHEL
+       [ `which yum` ] && read -p "install [y/N]? " && [ ! x${REPLY^} == xY ] && exit 1 || yum install git
       # Debian
       [ `which apt` ] && read -p "install [y/N]? " && [ ! x${REPLY^} == xY ] && exit 1 || sudo apt-get update && sudo apt-get install git
       # Alpine
