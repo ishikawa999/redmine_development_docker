@@ -17,6 +17,8 @@ $ cd ./redmine_development_docker
 * .envを書き換える
 
 ```bash
+# RedmineのリポジトリのURL。後から変えることも可能
+GIT_URL=https://github.com/redmine/redmine.git
 # VSCodeで表示する名前。バージョンごとに作るときは変えた方が良いかも
 APP_NAME=Redmine
 # 開発中のRedmineに http://localhost:8000 でアクセス出来るようになる。8000を既に使っている場合は変える
@@ -74,6 +76,8 @@ $ git remote set-url origin <リポジトリのURL>
 $ git fetch origin
 $ git reset --hard origin/master
 ```
+
+もしくは、コンテナから出て.envのGIT_URLを変更してからupdate_devcontainer_setting.shを再実行
 
 ### VSCodeの拡張機能を増やしたい
 

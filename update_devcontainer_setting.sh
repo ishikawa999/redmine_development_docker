@@ -11,7 +11,7 @@ if [ ! -d app ]; then
     [ `which apt` ] && sudo apt-get update && sudo apt-get install git
     [ `which apk` ] && apk add git
   fi
-  git clone --config=core.autocflf=input https://github.com/redmine/redmine.git app
+  git clone --config=core.autocflf=input ${GIT_URL} app
   cp overwrite_files/Gemfile.local app/Gemfile.local
   cp overwrite_files/database.yml app/config/database.yml
   cp overwrite_files/configuration.yml app/config/configuration.yml
