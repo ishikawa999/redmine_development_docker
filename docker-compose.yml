@@ -41,7 +41,7 @@ services:
       - postgresdb
     #  - mysqldb
     volumes:
-      - ./app:/var/lib/redmine
+      - ./app:/var/lib/redmine:cached
       # 全体を同期すると速度が遅くなるため、上の1行を消して下の4行のコメントアウトを外してもいい
       # その場合、同期場所がgitの履歴とshareディレクトリのみになるため、git commitしたもの + shareディレクトリに入れたファイル以外はコンテナのキャッシュが消えたときに消える
       # - ./app/.git:/var/lib/redmine/.git
@@ -53,6 +53,7 @@ services:
   # chrome:
   #          M1の場合はselenium/standalone-chrome-debugが動かないため、seleniarm/standalone-chromium:latestを代わりに使うこと。
   #   image: selenium/standalone-chrome-debug:3.141.59-20210913
+  #   shm_size: 256m
   #   ports:
   #   - $SELENIUM_PORT_1:4444
   #   - $SELENIUM_PORT_2:5900
