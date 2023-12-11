@@ -5,7 +5,7 @@
     "workspaceFolder": "/var/lib/redmine",
     "shutdownAction": "stopCompose",
     "extensions": [
-        "rebornix.ruby",
+        "KoichiSasada.vscode-rdbg",
         "eamodio.gitlens",
         "kaiwood.endwise",
         "mtxr.sqltools",
