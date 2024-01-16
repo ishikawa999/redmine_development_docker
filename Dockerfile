@@ -11,7 +11,7 @@ RUN set -eux; \
     bzr git mercurial subversion \
     gsfonts \
     imagemagick libmagick++-dev \
-    build-essential libpq-dev \
+    build-essential libpq-dev libclang-dev \
     vim less locales locales-all \
     default-libmysqlclient-dev libsqlite3-dev \
     ; \
