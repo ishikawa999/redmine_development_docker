@@ -1,5 +1,6 @@
 ARG RUBY_VERSION
-FROM ruby:$RUBY_VERSION
+# tag list https://mcr.microsoft.com/v2/vscode/devcontainers/ruby/tags/list
+FROM mcr.microsoft.com/vscode/devcontainers/ruby:$RUBY_VERSION
 ARG APP_HOME
 ARG APP_PORT
 ENV LANG C.UTF-8
