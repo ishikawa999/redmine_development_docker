@@ -1,5 +1,6 @@
 ARG RUBY_VERSION
-FROM ruby:$RUBY_VERSION
+# tag list https://mcr.microsoft.com/v2/vscode/devcontainers/ruby/tags/list
+FROM mcr.microsoft.com/vscode/devcontainers/ruby:$RUBY_VERSION
 ARG APP_HOME
 ARG APP_PORT
 ENV LANG C.UTF-8
@@ -11,7 +12,7 @@ RUN set -eux; \
     bzr git mercurial subversion \
     gsfonts \
     imagemagick libmagick++-dev \
-    build-essential libpq-dev \
+    build-essential libpq-dev libclang-dev \
     vim less locales locales-all \
     default-libmysqlclient-dev libsqlite3-dev \
     ; \

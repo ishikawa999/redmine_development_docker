@@ -4,30 +4,37 @@
     "service": "app",
     "workspaceFolder": "/var/lib/redmine",
     "shutdownAction": "stopCompose",
-    "extensions": [
-        "KoichiSasada.vscode-rdbg",
-        "eamodio.gitlens",
-        "kaiwood.endwise",
-        "mtxr.sqltools",
-        "mtxr.sqltools-driver-pg",
-        "ms-vsliveshare.vsliveshare"
-    ],
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash",
-        "workbench.colorCustomizations": {
-            "activityBar.background": "#ab3e3e"
-        },
-        "sqltools.connections": [
-            {
-                "previewLimit": 50,
-                "server": "postgresdb",
-                "port": 5432,
-                "driver": "PostgreSQL",
-                "name": "app_development",
-                "database": "app_development",
-                "username": "db_user",
-                "password": "password"
+    "remoteUser": "root",
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "KoichiSasada.vscode-rdbg",
+                "eamodio.gitlens",
+                "kaiwood.endwise",
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-pg",
+                "ms-vsliveshare.vsliveshare"
+            ],
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "workbench.colorCustomizations": {
+                    "activityBar.background": "#ab3e3e"
+                },
+                "sqltools.connections": [
+                    {
+                        "previewLimit": 50,
+                        "server": "postgresdb",
+                        "port": 5432,
+                        "driver": "PostgreSQL",
+                        "name": "app_development",
+                        "database": "app_development",
+                        "username": "db_user",
+                        "password": "password"
+                    }
+                ]
             }
-        ],
+        }
     }
 }

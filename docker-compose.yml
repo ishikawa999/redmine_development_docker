@@ -3,7 +3,7 @@ services:
 
   # PostgreSQL
   postgresdb:
-    image: postgres:11.5
+    image: postgres:14
     restart: on-failure:5
     environment:
       POSTGRES_PASSWORD: password
@@ -25,6 +25,8 @@ services:
         APP_HOME: /var/lib/redmine
         APP_PORT: $APP_PORT
         RUBY_VERSION: $RUBY_VERSION
+    # for M2 Mac
+    # platform: linux/amd64
     environment:
       RAILS_DB_ADAPTER: postgresql
       RAILS_DB_HOST: postgresdb
