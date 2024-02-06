@@ -10,7 +10,7 @@
         "vscode": {
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
-                "Shopify.ruby-lsp",
+                "KoichiSasada.vscode-rdbg",
                 "eamodio.gitlens",
                 "kaiwood.endwise",
                 "mtxr.sqltools",

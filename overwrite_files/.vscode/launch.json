@@ -2,12 +2,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "rdbg",
             "name": "Rails server",
-            "type": "Ruby",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "program": "${workspaceRoot}/bin/rails",
-            "args": ["server", "-b", "0"]
-        }
+            "script": "${workspaceRoot}/bin/rails server ",
+            "args": ["-b", "0"],
+            "askParameters": false,
+            "useBundler": false
+        },
+        {
+            "type": "rdbg",
+            "name": "Rails test",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "script": "${workspaceRoot}/bin/rails test",
+            "args": [
+            ],
+            "askParameters": false,
+            "useBundler": false
+        },
     ]
 }
