@@ -32,6 +32,7 @@ update-locale
 locale-gen ja_JP.UTF-8
 localedef -f UTF-8 -i ja_JP ja_JP
 
+mkdir /etc/apt/keyrings
 apt-get update && apt-get install -y ca-certificates curl gnupg
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
 NODE_MAJOR=20
