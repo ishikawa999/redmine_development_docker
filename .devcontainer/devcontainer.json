@@ -10,6 +10,7 @@
         "vscode": {
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
+                "Shopify.ruby-lsp",
                 "KoichiSasada.vscode-rdbg",
                 "eamodio.gitlens",
                 "kaiwood.endwise",
@@ -18,6 +19,10 @@
                 "ms-vsliveshare.vsliveshare"
             ],
             "settings": {
+                "[ruby]": {
+                    "editor.formatOnSave": false
+                },
+                "rubyLsp.rubyVersionManager": "none",
                 "terminal.integrated.shell.linux": "/bin/bash",
                 "workbench.colorCustomizations": {
                     "activityBar.background": "#ab3e3e"

@@ -16,7 +16,6 @@ if [ ! -d app ]; then
   else 
     git clone --config=core.autocflf=input -b ${REPOSITORY_BRANCH} ${REPOSITORY_URL} app
   fi
-  cp overwrite_files/Gemfile.local app/Gemfile.local
   cp overwrite_files/database.yml app/config/database.yml
   cp overwrite_files/configuration.yml app/config/configuration.yml
   cp overwrite_files/additional_environment.rb app/config/additional_environment.rb
@@ -28,3 +27,5 @@ fi
 # sed -i s/8000/${APP_PORT}/ .devcontainer/devcontainer.json  # 削除してよい?
 sed -i.bak s/Redmine/${APP_NAME}/ .devcontainer/devcontainer.json
 echo '.devcontainer/devcontainer.jsonを変更しました'
+
+cp overwrite_files/Gemfile.local app/Gemfile.local

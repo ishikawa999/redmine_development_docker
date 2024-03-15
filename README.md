@@ -31,7 +31,7 @@ SELENIUM_PORT_2=5900
 # Redmineから送信したメールを http://localhost:1080 で確認出来るようになる。1080を既に使っている場合は変える
 MAILCATCHER_PORT=1080
 # 開発するRedmineの推奨Rubyバージョンに応じて変える
-RUBY_VERSION=2.7
+RUBY_VERSION=3.0
 # mysqlやsqlite3に変えても良い。mysqlの場合、docker-compose.ymlのMySQL関連のコメントアウトを外す
 RAILS_DB_ADAPTER=postgresql
 ```
@@ -56,6 +56,7 @@ $ bash update_devcontainer_setting.sh
 
 * ターミナルのタブを追加し、
 ```bash
+$ bundle install
 $ rails s -b 0.0.0.0
 ```
 * 少し待つと、ブラウザから http://localhost:[.envで指定したAPP_PORT] でRedmineにアクセスできるようになる。
