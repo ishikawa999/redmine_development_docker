@@ -32,6 +32,7 @@ RUN for file_name in "/start.sh /entrypoint.sh /setup.sh /custom_shell.sh"; do \
 
 RUN bundle update
 RUN bundle install
+RUN gem install ruby-lsp && gem install ruby-lsp-rails
 RUN /setup.sh
 
 EXPOSE $APP_PORT

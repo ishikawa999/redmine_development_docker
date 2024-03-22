@@ -20,6 +20,7 @@ if [ ! -d app ]; then
   cp overwrite_files/configuration.yml app/config/configuration.yml
   cp overwrite_files/additional_environment.rb app/config/additional_environment.rb
   cp -r overwrite_files/.vscode app/
+  cp overwrite_files/Gemfile.local app/Gemfile.local
   echo 'appディレクトリにRedmineリポジトリをcloneしました'
 fi
 
@@ -27,5 +28,3 @@ fi
 # sed -i s/8000/${APP_PORT}/ .devcontainer/devcontainer.json  # 削除してよい?
 sed -i.bak s/Redmine/${APP_NAME}/ .devcontainer/devcontainer.json
 echo '.devcontainer/devcontainer.jsonを変更しました'
-
-cp overwrite_files/Gemfile.local app/Gemfile.local

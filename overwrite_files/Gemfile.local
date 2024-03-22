@@ -10,5 +10,3 @@ gem 'timecop'
 if Gem.ruby_version >= Gem::Version.new('2.7.0')
   gem 'debug'
 end
-gem 'ruby-lsp'
-gem 'ruby-lsp-rails'
