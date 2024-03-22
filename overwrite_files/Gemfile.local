@@ -7,6 +7,3 @@ gem 'parallel_tests'
 gem 'benchmark-ips'
 gem 'activeresource'
 gem 'timecop'
-if Gem.ruby_version >= Gem::Version.new('2.7.0')
-  gem 'debug'
-end

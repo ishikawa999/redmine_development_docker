@@ -16,8 +16,6 @@ RUN set -eux; \
     vim less locales locales-all \
     default-libmysqlclient-dev libsqlite3-dev \
     ; \
-    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt install -y nodejs && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*;
 ENV DEBIAN_FRONTEND dialog
@@ -32,7 +30,6 @@ RUN for file_name in "/start.sh /entrypoint.sh /setup.sh /custom_shell.sh"; do \
 
 RUN bundle update
 RUN bundle install
-RUN gem install ruby-lsp && gem install ruby-lsp-rails
 RUN /setup.sh
 
 EXPOSE $APP_PORT
