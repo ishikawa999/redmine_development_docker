@@ -15,7 +15,13 @@ RUN set -eux; \
     build-essential libpq-dev libclang-dev \
     vim less locales locales-all \
     default-libmysqlclient-dev libsqlite3-dev \
+    curl \
     ; \
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && apt update \
+    && apt install gh -y ; \
     apt clean && \
     rm -rf /var/lib/apt/lists/*;
 ENV DEBIAN_FRONTEND dialog
