@@ -8,6 +8,7 @@ ENV LANG C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 RUN set -eux; \
   apt update && \
+  apt upgrade && \
   apt install -y --no-install-recommends \
     bzr git mercurial subversion \
     gsfonts \
@@ -15,7 +16,7 @@ RUN set -eux; \
     build-essential libpq-dev libclang-dev \
     vim less locales locales-all \
     default-libmysqlclient-dev libsqlite3-dev \
-    curl \
+    curl --fix-missing \
     ; \
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
     && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
