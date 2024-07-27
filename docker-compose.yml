@@ -26,7 +26,7 @@ services:
         APP_PORT: $APP_PORT
         RUBY_VERSION: $RUBY_VERSION
     # for M2 Mac
-    # platform: linux/amd64
+    platform: linux/amd64
     environment:
       RAILS_DB_ADAPTER: postgresql
       RAILS_DB_HOST: postgresdb
@@ -43,12 +43,12 @@ services:
       - postgresdb
     #  - mysqldb
     volumes:
-      - ./app:/var/lib/redmine:cached
+      # - ./app:/var/lib/redmine:cached
       # 全体を同期すると速度が遅くなるため、上の1行を消して下の4行のコメントアウトを外してもいい
       # その場合、同期場所がgitの履歴とshareディレクトリのみになるため、git commitしたもの + shareディレクトリに入れたファイル以外はコンテナのキャッシュが消えたときに消える
-      # - ./app/.git:/var/lib/redmine/.git
+      - ./app/.git:/var/lib/redmine/.git
       # - ./share:/var/lib/redmine/../share
-      # - ./app/public:/var/lib/redmine/public
+      # - ./app/public:/var/lib/redmine/themes
       # - ./app/plugins:/var/lib/redmine/plugins
 
   # For selenium test

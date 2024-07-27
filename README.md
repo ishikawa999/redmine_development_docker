@@ -14,13 +14,17 @@ $ git clone --config=core.autocrlf=input https://github.com/ishikawa999/redmine_
 $ cd ./redmine_development_docker
 ```
 
-* .envを書き換える
+* .env.sampleをコピーして.envを書き換える
+
+```bash session
+$ cp .env.sample .env
+```
 
 ```bash
 # RedmineのリポジトリのURL。後から変えることも可能
 REPOSITORY_URL=https://github.com/redmine/redmine.git
 # リポジトリのブランチ名。
-REPOSITORY_BRANCH=
+REPOSITORY_BRANCH=master
 # VSCodeで表示する名前。バージョンごとに作るときは変えた方が良いかも
 APP_NAME=Redmine
 # 開発中のRedmineに http://localhost:8000 でアクセス出来るようになる。8000を既に使っている場合は変える
@@ -31,7 +35,7 @@ SELENIUM_PORT_2=5900
 # Redmineから送信したメールを http://localhost:1080 で確認出来るようになる。1080を既に使っている場合は変える
 MAILCATCHER_PORT=1080
 # 開発するRedmineの推奨Rubyバージョンに応じて変える
-RUBY_VERSION=3.0
+RUBY_VERSION=3.3
 # mysqlやsqlite3に変えても良い。mysqlの場合、docker-compose.ymlのMySQL関連のコメントアウトを外す
 RAILS_DB_ADAPTER=postgresql
 ```
