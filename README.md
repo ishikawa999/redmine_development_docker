@@ -35,7 +35,7 @@ SELENIUM_PORT_2=5900
 # Redmineから送信したメールを http://localhost:1080 で確認出来るようになる。1080を既に使っている場合は変える
 MAILCATCHER_PORT=1080
 # 開発するRedmineの推奨Rubyバージョンに応じて変える
-RUBY_VERSION=3.2
+RUBY_VERSION=3.3
 # mysqlやsqlite3に変えても良い。mysqlの場合、docker-compose.ymlのMySQL関連のコメントアウトを外す
 RAILS_DB_ADAPTER=postgresql
 ```

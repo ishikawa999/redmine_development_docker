@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd $APP_HOME
 bundle install
 rake generate_secret_token
 
