@@ -5,6 +5,9 @@
     "workspaceFolder": "/var/lib/redmine",
     "shutdownAction": "stopCompose",
     "remoteUser": "root",
+    "remoteEnv": {
+        "BUNDLE_APP_CONFIG": null
+    },
     "customizations": {
         // Configure properties specific to VS Code.
         "vscode": {
