@@ -24,6 +24,8 @@ chmod a+x /var/lib/.git-completion.bash
 
 # git 文字化け対処
 git config --global core.pager "LESSCHARSET=utf-8 less"
+# gitのデフォルトエディタをvimに変更
+git config --global core.editor vim
 
 echo 'ja_JP.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
